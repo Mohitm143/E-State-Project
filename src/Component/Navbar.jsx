@@ -1,33 +1,180 @@
-import React from 'react'
+import React, { useState } from "react";
 import { IoBusinessSharp } from "react-icons/io5";
-const Navbar = () => {
-  return (
-    <div className='flex items-center justify-between px-10 py-5 bg-transparent'>
-        <div className='flex items-center justify-between gap-2'>
-            < IoBusinessSharp size={22}/>
-            <h1 className='text-xl'>E-State</h1>
-        </div>
-        <div >
-            <ul className='flex items-center justify-between gap-x-10 list-none'>
-                <li>
-                    <a href="#Home"  className=' hover:text-blue-800'>Home</a>
-                </li>
-                <li>
-                    <a href="#About" className=' hover:text-blue-800'>About</a>
-                </li>
-                <li>
-                    <a href="#Projects" className=' hover:text-blue-800'>Project</a>
-                </li>
-                <li>
-                    <a href="#Testimonial" className=' hover:text-blue-800'>Testomonial</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <a href='#Contact'className='hidden md:block rounded-full bg-white text-black px-5 py-2 active:scale-110'>Sign Up</a>
-        </div>
-    </div>
-  )
-}
+import { FaBars, FaTimes } from "react-icons/fa";
 
-export default Navbar
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav
+      className="
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        bg-white/10
+        backdrop-blur-md
+        text-white
+      "
+    >
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          px-4
+          sm:px-6
+          lg:px-8
+          py-4
+        "
+      >
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <IoBusinessSharp size={24} />
+            <h1 className="text-xl sm:text-2xl font-semibold">
+              E-State
+            </h1>
+          </div>
+
+          {/* Desktop Menu */}
+          <ul
+            className="
+              hidden
+              md:flex
+              items-center
+              gap-8
+              font-medium
+            "
+          >
+            <li>
+              <a href="#Home" className="hover:text-blue-300">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="#About" className="hover:text-blue-300">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#Projects" className="hover:text-blue-300">
+                Projects
+              </a>
+            </li>
+
+            <li>
+              <a href="#Testimonial" className="hover:text-blue-300">
+                Testimonial
+              </a>
+            </li>
+          </ul>
+
+          {/* Desktop Button */}
+          <a
+            href="#Contact"
+            className="
+              hidden
+              md:block
+              bg-white
+              text-black
+              px-5
+              py-2
+              rounded-full
+              hover:bg-blue-500
+              hover:text-white
+              transition-all
+            "
+          >
+            Sign Up
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-2xl"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div
+            className="
+              md:hidden
+              mt-4
+              bg-white/20
+              backdrop-blur-md
+              rounded-xl
+              p-5
+            "
+          >
+            <ul className="flex flex-col gap-5 text-center">
+              <li>
+                <a
+                  href="#Home"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-blue-300"
+                >
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#About"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-blue-300"
+                >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#Projects"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-blue-300"
+                >
+                  Projects
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#Testimonial"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-blue-300"
+                >
+                  Testimonial
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#Contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="
+                    inline-block
+                    bg-white
+                    text-black
+                    px-5
+                    py-2
+                    rounded-full
+                  "
+                >
+                  Sign Up
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

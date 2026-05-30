@@ -1,34 +1,155 @@
-import React from 'react'
+import React from "react";
 
 const Contact = () => {
   return (
-    <div id='Contact'className='min-h-screen py-10'>
-        <div >
-            <h1 className='font-extrabold text-3xl flex justify-center items-center '>Contact Us </h1>
-            <p className='text-zinc-500 flex justify-center items-center text-xs'> Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div className='flex gap-20 items-center justify-center mt-20  '>
-        <div >
-            <h3 className='mb-1 font-bold'>Your Name</h3>
-            <input type='name' placeholder='Enter your Name ' className='border-2 pr-18 pl-2 py-2 outline-none '>
-            </input>
-        </div>
-        <div>
-            <h3 className='mb-1 font-bold'>Your Email</h3>
-            <input type='Email' placeholder='Enter your Email 'className='border-2 pr-18 pl-2 py-2 outline-none '>
-            </input>
-        </div>
-        </div>
-        <div className='flex  flex-col items-center justify-center mt-10 '>
-            <h3 className=' flex items-center font-bold text-xl '> Your Message</h3>
-            <input type='textarea' placeholder='Write your Message' className='pr-100 pl-2 pt-3 pb-60 border-2 outline-none '></input>
-        </div>
-        <div className=' flex items-center justify-center mt-3 '>
-        <button className='  px-5 py-2  bg-blue-500 text-white  rounded-2xl hover:scale-110 cursor-pointer'>submit</button>
-        </div>
-        
-    </div>
-  )
-}
+    <section
+      id="Contact"
+      className="
+        min-h-screen
+        py-16
+        px-4
+        sm:px-6
+        md:px-10
+        lg:px-20
+      "
+    >
+      {/* Heading */}
+      <div className="text-center mb-12">
+        <h1
+          className="
+            text-3xl
+            sm:text-4xl
+            md:text-5xl
+            font-extrabold
+          "
+        >
+          Contact Us
+        </h1>
 
-export default Contact
+        <p
+          className="
+            text-zinc-500
+            mt-3
+            text-sm
+            sm:text-base
+          "
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </div>
+
+      {/* Form */}
+      <div
+        className="
+          max-w-4xl
+          mx-auto
+          bg-white
+          shadow-lg
+          rounded-2xl
+          p-6
+          sm:p-8
+        "
+      >
+        {/* Name & Email */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            gap-6
+          "
+        >
+          {/* Name */}
+          <div>
+            <label className="block mb-2 font-semibold">
+              Your Name
+            </label>
+
+            <input
+              type="text"
+              placeholder="Enter your name"
+              className="
+                w-full
+                border-2
+                border-gray-300
+                rounded-lg
+                px-4
+                py-3
+                outline-none
+                focus:border-blue-500
+              "
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block mb-2 font-semibold">
+              Your Email
+            </label>
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="
+                w-full
+                border-2
+                border-gray-300
+                rounded-lg
+                px-4
+                py-3
+                outline-none
+                focus:border-blue-500
+              "
+            />
+          </div>
+        </div>
+
+        {/* Message */}
+        <div className="mt-6">
+          <label className="block mb-2 font-semibold">
+            Your Message
+          </label>
+
+          <textarea
+            rows="6"
+            placeholder="Write your message here..."
+            className="
+              w-full
+              border-2
+              border-gray-300
+              rounded-lg
+              px-4
+              py-3
+              outline-none
+              resize-none
+              focus:border-blue-500
+            "
+          ></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            className="
+              bg-blue-500
+              hover:bg-blue-600
+              text-white
+              px-8
+              py-3
+              rounded-xl
+              font-semibold
+              transition-all
+              duration-300
+              hover:scale-105
+              active:scale-95
+            "
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
